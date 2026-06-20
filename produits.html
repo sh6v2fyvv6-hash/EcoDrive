@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produits — EcoDrive AlgO2</title>
+  <meta name="description" content="La gamme AlgO2 : un pot d'échappement aux algues pour chaque véhicule — citadine, berline, SUV, utilitaire et l'édition Sport." />
+  <meta name="theme-color" content="#0A4DA2" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-ecodrive.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Accueil EcoDrive">
+        <img src="assets/logo-ecodrive.svg" alt="Logo EcoDrive" class="brand-logo" />
+        <span class="brand-name">Eco<span class="brand-name-alt">Drive</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html" class="is-current">Produits</a>
+        <a href="contact.html">Contact</a>
+        <a href="panier.html" class="nav-cart">🛒 Panier <span class="cart-badge" data-cart-count>0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a> <span>/</span> Produits</nav>
+        <h1>La gamme AlgO<sub>2</sub></h1>
+        <p>Un pot d'échappement aux algues taillé pour <strong>votre</strong> véhicule. Installation offerte, algues renouvelées tous les 6 mois, garantie 5 ans.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filters" role="group" aria-label="Filtrer les produits">
+          <button class="filter-btn is-active" data-filter="all">Tous</button>
+          <button class="filter-btn" data-filter="Citadine">Citadine</button>
+          <button class="filter-btn" data-filter="Berline">Berline</button>
+          <button class="filter-btn" data-filter="SUV">SUV</button>
+          <button class="filter-btn" data-filter="Utilitaire">Utilitaire</button>
+          <button class="filter-btn" data-filter="sport">🏁 Sport</button>
+        </div>
+
+        <div class="grid grid-3" id="catalog"><!-- injecté par JS --></div>
+
+        <noscript><p class="noscript-note">Activez JavaScript pour afficher la gamme et le panier.</p></noscript>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Slogans EcoDrive">
+      <div class="marquee-track">
+        <span>🌊 AlgO2, ça va LITTÉRALEMENT changer votre vie&nbsp;!</span>
+        <span>😎 Roulez propre, respirez mieux, brillez en société</span>
+        <span>🤯 Le seul pot qui transforme vos bouchons en air pur</span>
+        <span>🚀 Rejoignez la révolution, vos voisins seront JALOUX</span>
+        <span>🌊 AlgO2, ça va LITTÉRALEMENT changer votre vie&nbsp;!</span>
+        <span>😎 Roulez propre, respirez mieux, brillez en société</span>
+        <span>🤯 Le seul pot qui transforme vos bouchons en air pur</span>
+        <span>🚀 Rejoignez la révolution, vos voisins seront JALOUX</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-ecodrive.svg" alt="Logo EcoDrive" class="footer-logo" />
+        <p>Clean Energy. Clean Oceans. Better Future.</p>
+      </div>
+      <nav class="footer-links" aria-label="Liens de pied de page">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="panier.html">Panier</a>
+        <a href="contact.html">Contact</a>
+        <a href="cgu.html">CGU</a>
+      </nav>
+      <p class="footer-copy">© <span id="year"></span> EcoDrive — AlgO<sub>2</sub>. Projet conceptuel et fictif.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -23,16 +23,35 @@ Son produit **AlgO2** est une solution embarquée qui exploite les micro-algues 
 | Titres | Poppins (SemiBold) |
 | Texte | Montserrat (Regular) |
 
-## 📂 Structure
+## 📂 Structure (site multi-pages)
 
 ```
 .
-├── index.html          # Page unique (Hero, Mission, Produit, Caractéristiques, Contact)
+├── index.html          # Présentation (accueil)
+├── produits.html       # Catalogue : la gamme AlgO2 + filtres
+├── produit.html        # Fiche produit dynamique (?id=city|berline|suv|sport|van)
+├── panier.html         # Panier (localStorage)
+├── contact.html        # Contact
+├── cgu.html            # Conditions générales (fictives)
 ├── css/style.css       # Styles + charte graphique + responsive
-├── js/main.js          # Menu mobile, année dynamique, validation du formulaire
+├── js/
+│   ├── products.js     # Données produits + logique panier (window.ECODRIVE)
+│   └── main.js         # Nav, badge panier, rendu catalogue/fiche/panier, formulaire
 └── assets/
     └── logo-ecodrive.svg
 ```
+
+### Gamme AlgO2 (par modèle de véhicule)
+
+| Modèle | Véhicule | Ø | Prix |
+|---|---|---|---|
+| AlgO2 City | Citadine | 50 mm | 349 € |
+| AlgO2 Berline | Berline / compacte | 60 mm | 449 € |
+| AlgO2 SUV | SUV / familiale | 63 mm | 549 € |
+| **AlgO2 Sport** | **Sportive** | **76 mm** | **899 €** |
+| AlgO2 Van | Utilitaire | 89 mm | 649 € |
+
+> Le **panier** est conservé localement dans le navigateur (`localStorage`) : aucune donnée n'est envoyée à un serveur. Tout est **fictif** (prix, garanties, avis) — projet académique.
 
 ## ▶️ Lancer en local
 
