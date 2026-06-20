@@ -420,39 +420,45 @@ sub { font-size: .65em; }
 .cart-sum-month strong { font-family: "Poppins", sans-serif; color: var(--aqua); font-size: 1.1rem; }
 
 /* ===================== Scène animée au défilement ===================== */
-#howit { position: relative; height: 260vh; --p: 0; }
-.howit-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; background: linear-gradient(180deg, #eaf6fb 0%, #f3f8f9 55%, #e6edef 100%); }
-.howit-sky { position: absolute; inset: 0; background:
-   radial-gradient(130px 60px at 18% 20%, rgba(255,255,255,.95), transparent 70%),
-   radial-gradient(170px 70px at 68% 14%, rgba(255,255,255,.85), transparent 70%),
-   radial-gradient(110px 50px at 88% 26%, rgba(255,255,255,.8), transparent 70%);
+#howit { position: relative; height: 300vh; --p: 0; }
+.howit-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; perspective: 1200px; perspective-origin: 50% 40%;
+   background: radial-gradient(120% 95% at 50% 16%, #f3f9fb 0%, #e3edf1 55%, #d2dee3 100%); }
+.howit-sky { position: absolute; inset: 0; pointer-events: none; background:
+   radial-gradient(150px 70px at 22% 16%, rgba(255,255,255,.9), transparent 70%),
+   radial-gradient(180px 80px at 72% 12%, rgba(255,255,255,.8), transparent 70%);
    background-repeat: no-repeat; }
-.howit-stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 24%; background: linear-gradient(180deg, #32424a, #25323a); }
-.howit-stage::before { content: ""; position: absolute; left: 0; right: 0; bottom: 11%; height: 4px; z-index: 1;
-   background: repeating-linear-gradient(90deg, #ffd54a 0 42px, transparent 42px 96px);
-   background-position-x: calc(var(--p) * -1700px); opacity: .9; }
+/* ombre de contact qui grandit quand la voiture s'approche */
+.howit-stage::after { content: ""; position: absolute; left: 50%; bottom: 14%; width: 44%; height: 56px; z-index: 1;
+   transform: translateX(-50%) scale(calc(.45 + var(--p) * .9)); transform-origin: center;
+   background: radial-gradient(ellipse, rgba(38,50,56,.28), transparent 70%);
+   opacity: clamp(0, calc(var(--p) * 1.4), .85); }
 
-.howit-intro { position: absolute; top: 12%; left: 6%; max-width: 360px; z-index: 3;
-   opacity: clamp(0, calc(1.1 - var(--p) * 3), 1); transform: translateY(calc(var(--p) * -12px)); }
+.howit-intro { position: absolute; top: 9%; left: 6%; max-width: 360px; z-index: 4;
+   opacity: clamp(0, calc(1.1 - var(--p) * 3.2), 1); transform: translateY(calc(var(--p) * -12px)); }
 .howit-intro .kicker { display: block; margin-bottom: .3rem; }
-.howit-intro h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+.howit-intro h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
 .howit-intro p { color: var(--muted); }
 
-.howit-car { position: absolute; bottom: 20%; width: clamp(255px, 44vw, 500px); z-index: 2;
-   left: calc((1 - var(--p)) * 146% - 26%); transform: scaleX(-1); will-change: left; }
-.howit-car svg { width: 100%; height: auto; overflow: visible; }
+/* La voiture (vue de dessous) avance depuis le fond, puis bascule pour montrer son châssis */
+.howit-car { position: absolute; top: 47%; left: 50%; width: clamp(170px, 26vw, 290px); z-index: 2;
+   transform-origin: center center; transform-style: preserve-3d;
+   transform: translate(-50%, -50%)
+              rotateX(calc(84deg - var(--p) * 70deg))
+              scale(calc(.42 + var(--p) * .72));
+   filter: drop-shadow(0 28px 28px rgba(38,50,56,.20)); will-change: transform; }
+.howit-car svg { width: 100%; height: auto; overflow: visible; display: block; }
 .howit-pot { animation: potPulse 1.5s ease-in-out infinite; }
-@keyframes potPulse { 0%,100% { filter: drop-shadow(0 0 4px rgba(0,182,166,.55)); } 50% { filter: drop-shadow(0 0 11px rgba(0,182,166,.95)); } }
-.howit-bubbles circle { opacity: 0; animation: bubbleUp 1.9s linear infinite; }
-.howit-bubbles .b2 { animation-delay: .6s; }
-.howit-bubbles .b3 { animation-delay: 1.2s; }
-@keyframes bubbleUp { 0% { transform: translate(0,0) scale(.5); opacity: 0; } 20% { opacity: .9; } 100% { transform: translate(-30px,-50px) scale(1.1); opacity: 0; } }
+@keyframes potPulse { 0%,100% { filter: drop-shadow(0 0 3px rgba(0,182,166,.5)); } 50% { filter: drop-shadow(0 0 10px rgba(0,182,166,.95)); } }
+.howit-bubbles circle { opacity: 0; animation: bubbleUp 2s linear infinite; }
+.howit-bubbles .b2 { animation-delay: .7s; }
+.howit-bubbles .b3 { animation-delay: 1.3s; }
+@keyframes bubbleUp { 0% { transform: translate(0,0) scale(.5); opacity: 0; } 25% { opacity: .85; } 100% { transform: translate(0,34px) scale(1.1); opacity: 0; } }
 
-.howit-callout { position: absolute; top: 15%; right: 5%; max-width: 320px; z-index: 3;
+.howit-callout { position: absolute; bottom: 8%; right: 5%; max-width: 320px; z-index: 4;
    background: #fff; border: 1px solid var(--border); border-left: 5px solid var(--aqua);
    border-radius: var(--radius); padding: 1.2rem 1.4rem; box-shadow: var(--shadow-lg);
-   opacity: clamp(0, calc((var(--p) - 0.3) * 5), 1);
-   transform: translateY(calc((1 - clamp(0, calc((var(--p) - 0.3) * 5), 1)) * 18px)); }
+   opacity: clamp(0, calc((var(--p) - 0.55) * 6), 1);
+   transform: translateY(calc((1 - clamp(0, calc((var(--p) - 0.55) * 6), 1)) * 18px)); }
 .howit-callout h3 { margin: 0 0 .7rem; }
 .howit-callout ul { list-style: none; margin: 0 0 .7rem; padding: 0; display: grid; gap: .5rem; }
 .howit-callout li { font-size: .92rem; display: flex; align-items: center; gap: .55rem; }
@@ -479,9 +485,9 @@ sub { font-size: .65em; }
 .model-legend small { display: block; color: var(--muted); font-size: .88rem; }
 
 @media (max-width: 860px) {
-  .howit-intro { top: 8%; max-width: 280px; }
-  .howit-callout { top: auto; bottom: 30%; left: 5%; right: 5%; max-width: none; }
-  .howit-car { bottom: 26%; }
+  .howit-intro { top: 7%; max-width: 260px; }
+  .howit-callout { bottom: 6%; left: 5%; right: 5%; max-width: none; }
+  .howit-car { width: clamp(150px, 44vw, 240px); }
   .model3d-stage { grid-template-columns: 1fr; gap: 1.5rem; }
   .model3d-canvas { height: 340px; }
 }
