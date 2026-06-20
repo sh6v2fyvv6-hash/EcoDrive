@@ -88,93 +88,122 @@
 
         <!-- Voiture (vue de profil) réaliste -->
         <div class="howit-car">
-          <svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voiture équipée d'un pot AlgO2">
+          <svg viewBox="0 0 560 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voiture équipée d'un pot AlgO2">
             <defs>
               <linearGradient id="carBody" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#4a8fe8"/><stop offset=".45" stop-color="#0A4DA2"/><stop offset="1" stop-color="#06316b"/>
+                <stop offset="0" stop-color="#6aa6f0"/><stop offset=".22" stop-color="#2f74cf"/>
+                <stop offset=".55" stop-color="#0A4DA2"/><stop offset="1" stop-color="#06285a"/>
               </linearGradient>
               <linearGradient id="carGlass" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#eaf6ff"/><stop offset="1" stop-color="#9cc0db"/>
+                <stop offset="0" stop-color="#dff1ff"/><stop offset="1" stop-color="#7ba6c4"/>
               </linearGradient>
-              <radialGradient id="carRim" cx=".42" cy=".38" r=".62">
-                <stop offset="0" stop-color="#f4f7f8"/><stop offset=".7" stop-color="#c2ccd1"/><stop offset="1" stop-color="#8b969c"/>
+              <radialGradient id="carRim" cx=".4" cy=".36" r=".66">
+                <stop offset="0" stop-color="#fbfdfd"/><stop offset=".65" stop-color="#c2ccd1"/><stop offset="1" stop-color="#828d93"/>
               </radialGradient>
               <radialGradient id="carDisc" cx=".5" cy=".5" r=".5">
-                <stop offset="0" stop-color="#cfd6da"/><stop offset="1" stop-color="#8e989d"/>
+                <stop offset="0" stop-color="#dde3e6"/><stop offset=".8" stop-color="#9aa4a9"/><stop offset="1" stop-color="#6b757a"/>
               </radialGradient>
               <linearGradient id="carPot" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#dfe5e8"/><stop offset="1" stop-color="#98a2a8"/>
+                <stop offset="0" stop-color="#eef2f4"/><stop offset=".5" stop-color="#c2ccd1"/><stop offset="1" stop-color="#909a9f"/>
               </linearGradient>
               <linearGradient id="carShine" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+                <stop offset="0" stop-color="#ffffff" stop-opacity=".7"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
               </linearGradient>
             </defs>
 
-            <!-- ombre -->
-            <ellipse cx="262" cy="214" rx="220" ry="13" fill="rgba(38,50,56,.22)"/>
+            <!-- ombre au sol -->
+            <ellipse cx="290" cy="226" rx="250" ry="13" fill="rgba(38,50,56,.22)"/>
 
             <!-- carrosserie -->
-            <path d="M470 150 C472 134 466 126 452 124 L416 110 C410 104 402 100 392 100 L356 98 L304 60
-                     C300 58 296 56 290 56 L214 56 C206 56 200 60 196 68 L168 100 L96 104
-                     C80 105 70 114 67 130 L64 150 L78 168 L104 168 C104 142 114 132 140 132
-                     C166 132 176 142 176 168 L344 168 C344 142 354 132 380 132 C406 132 416 142 416 168 L470 168 Z"
+            <path d="M523 140 C518 131 509 125 496 123 L482 121 C466 111 440 107 408 107 L360 105 L300 64
+                     C296 60 291 58 284 58 L206 58 C172 58 146 71 128 98 L114 120 L92 122
+                     C79 123 72 130 70 141 L68 162 C68 174 74 180 86 180 L122 180
+                     C122 153 135 142 165 142 C195 142 208 153 208 180 L387 180
+                     C387 153 400 142 430 142 C460 142 473 153 473 180 L520 180
+                     C529 180 532 168 532 158 C532 150 529 144 523 140 Z"
                   fill="url(#carBody)"/>
-            <!-- reflet supérieur + bande brillante -->
-            <path d="M199 70 L290 58 C296 57 300 59 303 62 L300 66 L214 64 C208 64 203 66 199 72 Z" fill="url(#carShine)"/>
-            <path d="M120 120 Q262 108 420 122 L420 126 Q262 114 120 126 Z" fill="#ffffff" opacity=".14"/>
-            <!-- bas de caisse plus sombre -->
-            <path d="M96 158 H420" stroke="#06316b" stroke-width="6" opacity=".5" stroke-linecap="round"/>
+
+            <!-- reflet d'épaule (haut) -->
+            <path d="M128 98 C146 71 172 58 206 58 L284 58 C291 58 296 60 300 64 L296 67 L208 65 C176 65 152 77 137 100 Z" fill="url(#carShine)"/>
+            <!-- bande de reflet (beltline) -->
+            <path d="M120 122 Q290 110 470 122 L470 127 Q290 116 120 127 Z" fill="#ffffff" opacity=".13"/>
+            <!-- ligne de caractère -->
+            <path d="M150 130 C260 122 380 124 470 132" fill="none" stroke="#8fbcf3" stroke-width="2.5" opacity=".6"/>
+            <!-- bas de caisse assombri -->
+            <path d="M92 176 H500" stroke="#04244f" stroke-width="7" opacity=".4" stroke-linecap="round"/>
 
             <!-- vitres -->
-            <path d="M214 60 L250 60 L250 96 L184 96 Z" fill="url(#carGlass)"/>
-            <path d="M258 60 L300 60 L342 96 L258 96 Z" fill="url(#carGlass)"/>
+            <path d="M258 62 L300 64 L340 104 L258 104 Z" fill="url(#carGlass)"/>
+            <path d="M210 62 L252 62 L252 104 L150 104 C150 92 168 76 190 66 Z" fill="url(#carGlass)"/>
             <!-- reflets vitres -->
-            <path d="M226 62 L238 62 L208 94 L196 94 Z" fill="#ffffff" opacity=".25"/>
-            <path d="M270 62 L284 62 L262 94 L250 94 Z" fill="#ffffff" opacity=".22"/>
+            <path d="M268 64 L284 64 L256 102 L240 102 Z" fill="#ffffff" opacity=".22"/>
+            <path d="M222 66 L236 66 L206 102 L192 102 Z" fill="#ffffff" opacity=".2"/>
             <!-- rétroviseur -->
-            <path d="M342 88 l13 -1 l1 7 l-13 2 z" fill="#06316b"/>
+            <path d="M340 96 l13 -2 l2 9 l-13 3 z" fill="#06285a"/>
 
-            <!-- lignes de portes + poignées -->
-            <line x1="254" y1="98" x2="254" y2="150" stroke="#06316b" stroke-width="2" opacity=".5"/>
-            <line x1="356" y1="100" x2="360" y2="150" stroke="#06316b" stroke-width="2" opacity=".4"/>
-            <rect x="226" y="116" width="20" height="5" rx="2.5" fill="#cdd9e6"/>
-            <rect x="296" y="116" width="20" height="5" rx="2.5" fill="#cdd9e6"/>
+            <!-- montants & portes -->
+            <line x1="255" y1="64" x2="255" y2="104" stroke="#06285a" stroke-width="3" opacity=".55"/>
+            <line x1="256" y1="106" x2="258" y2="166" stroke="#06285a" stroke-width="2" opacity=".45"/>
+            <line x1="352" y1="106" x2="360" y2="166" stroke="#06285a" stroke-width="2" opacity=".4"/>
+            <rect x="222" y="120" width="22" height="5" rx="2.5" fill="#d4e2f2"/>
+            <rect x="300" y="120" width="22" height="5" rx="2.5" fill="#d4e2f2"/>
 
-            <!-- feux -->
-            <circle cx="462" cy="124" r="11" fill="#ffe9a8" opacity=".45"/>
-            <path d="M452 116 q15 1 17 12 l-19 2 z" fill="#fff6cf"/>
-            <path d="M66 112 q-3 1 -3 9 l12 1 z" fill="#e23b3b"/>
+            <!-- avant : phare, calandre, plaque -->
+            <circle cx="498" cy="128" r="13" fill="#ffe9a8" opacity=".4"/>
+            <path d="M474 119 L500 124 L502 133 L478 133 Z" fill="#eaf4ff"/>
+            <path d="M477 122 L499 126" stroke="#bfe0ff" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="502" y="150" width="22" height="11" rx="4" fill="#0a2a55"/>
+            <rect x="500" y="166" width="20" height="8" rx="2" fill="#eef2f4"/>
+            <!-- arrière : feu -->
+            <path d="M70 124 L92 121 L92 134 L72 136 Z" fill="#e23b3b"/>
+            <path d="M73 126 L90 123" stroke="#ff8a8a" stroke-width="2" stroke-linecap="round"/>
 
             <!-- POT AlgO2 (arrière) -->
             <g class="howit-pot">
-              <rect x="30" y="164" width="48" height="22" rx="11" fill="url(#carPot)" stroke="#8e989d"/>
-              <rect x="49" y="167" width="14" height="16" rx="4" fill="#00B6A6"/>
-              <rect x="16" y="170" width="16" height="10" rx="3" fill="#9aa4a9"/>
+              <rect x="28" y="166" width="50" height="22" rx="11" fill="url(#carPot)" stroke="#8e989d"/>
+              <rect x="46" y="169" width="14" height="16" rx="4" fill="#00B6A6"/>
+              <rect x="14" y="172" width="16" height="10" rx="3" fill="#b8c2c7"/>
             </g>
             <!-- bulles O2 -->
             <g class="howit-bubbles" fill="#00B6A6">
-              <circle class="b1" cx="14" cy="174" r="4"/>
-              <circle class="b2" cx="14" cy="174" r="3"/>
-              <circle class="b3" cx="14" cy="174" r="5"/>
+              <circle class="b1" cx="12" cy="176" r="4"/>
+              <circle class="b2" cx="12" cy="176" r="3"/>
+              <circle class="b3" cx="12" cy="176" r="5"/>
             </g>
 
             <!-- roue arrière -->
             <g>
-              <circle cx="140" cy="178" r="40" fill="#15191c"/>
-              <circle cx="140" cy="178" r="40" fill="none" stroke="#2b3439" stroke-width="6"/>
-              <circle cx="140" cy="178" r="23" fill="url(#carDisc)"/>
-              <circle cx="140" cy="178" r="20" fill="url(#carRim)"/>
-              <g fill="#39444a"><circle cx="140" cy="166" r="4"/><circle cx="151" cy="174" r="4"/><circle cx="147" cy="188" r="4"/><circle cx="133" cy="188" r="4"/><circle cx="129" cy="174" r="4"/></g>
-              <circle cx="140" cy="178" r="5.5" fill="#5b676d"/>
+              <circle cx="165" cy="190" r="42" fill="#14171a"/>
+              <circle cx="165" cy="190" r="42" fill="none" stroke="#2b3439" stroke-width="7"/>
+              <circle cx="165" cy="190" r="24" fill="url(#carDisc)"/>
+              <rect x="142" y="183" width="8" height="14" rx="3" fill="#c0392b"/>
+              <circle cx="165" cy="190" r="21" fill="url(#carRim)"/>
+              <g stroke="#aeb8bd" stroke-width="4" stroke-linecap="round">
+                <line x1="165" y1="183" x2="165" y2="171"/>
+                <line x1="172" y1="188" x2="183" y2="184"/>
+                <line x1="169" y1="196" x2="176" y2="205"/>
+                <line x1="161" y1="196" x2="154" y2="205"/>
+                <line x1="158" y1="188" x2="147" y2="184"/>
+              </g>
+              <circle cx="165" cy="190" r="6.5" fill="url(#carRim)" stroke="#8b969c"/>
+              <circle cx="165" cy="190" r="2.5" fill="#5b676d"/>
             </g>
             <!-- roue avant -->
             <g>
-              <circle cx="380" cy="178" r="40" fill="#15191c"/>
-              <circle cx="380" cy="178" r="40" fill="none" stroke="#2b3439" stroke-width="6"/>
-              <circle cx="380" cy="178" r="23" fill="url(#carDisc)"/>
-              <circle cx="380" cy="178" r="20" fill="url(#carRim)"/>
-              <g fill="#39444a"><circle cx="380" cy="166" r="4"/><circle cx="391" cy="174" r="4"/><circle cx="387" cy="188" r="4"/><circle cx="373" cy="188" r="4"/><circle cx="369" cy="174" r="4"/></g>
-              <circle cx="380" cy="178" r="5.5" fill="#5b676d"/>
+              <circle cx="430" cy="190" r="42" fill="#14171a"/>
+              <circle cx="430" cy="190" r="42" fill="none" stroke="#2b3439" stroke-width="7"/>
+              <circle cx="430" cy="190" r="24" fill="url(#carDisc)"/>
+              <rect x="407" y="183" width="8" height="14" rx="3" fill="#c0392b"/>
+              <circle cx="430" cy="190" r="21" fill="url(#carRim)"/>
+              <g stroke="#aeb8bd" stroke-width="4" stroke-linecap="round">
+                <line x1="430" y1="183" x2="430" y2="171"/>
+                <line x1="437" y1="188" x2="448" y2="184"/>
+                <line x1="434" y1="196" x2="441" y2="205"/>
+                <line x1="426" y1="196" x2="419" y2="205"/>
+                <line x1="423" y1="188" x2="412" y2="184"/>
+              </g>
+              <circle cx="430" cy="190" r="6.5" fill="url(#carRim)" stroke="#8b969c"/>
+              <circle cx="430" cy="190" r="2.5" fill="#5b676d"/>
             </g>
           </svg>
         </div>
@@ -296,24 +325,29 @@
           <h2>Les humains derrière les algues 🌱</h2>
           <p class="section-sub">Une équipe de passionnés qui croit qu'on peut rouler <em>et</em> respirer.</p>
         </div>
-        <div class="grid grid-3 team">
+        <div class="grid team">
           <article class="card member">
-            <span class="member-photo">👩‍🔬</span><h3>Marine Lebleu</h3>
-            <p class="member-role">PDG &amp; Fondatrice</p>
-            <p class="member-bio">Ingénieure et amoureuse des océans, elle a fondé EcoDrive pour transformer chaque trajet en geste pour la planète.</p>
+            <span class="member-photo">👨‍💼</span><h3>Quentin Cadoret</h3>
+            <p class="member-role">PDG &amp; Fondateur</p>
+            <p class="member-bio">À l'origine d'EcoDrive, il porte la vision : transformer chaque trajet en geste concret pour la planète.</p>
           </article>
           <article class="card member">
-            <span class="member-photo">👨‍🔧</span><h3>Tom Vasseur</h3>
+            <span class="member-photo">👨‍🔧</span><h3>Julien Barbarou</h3>
             <p class="member-role">Directeur Technique (CTO)</p>
             <p class="member-bio">Cerveau du pot AlgO<sub>2</sub>, il a fait cohabiter micro-algues et hautes températures. Spoiler : ça marche.</p>
           </article>
           <article class="card member">
-            <span class="member-photo">👩‍🌾</span><h3>Inès Caron</h3>
-            <p class="member-role">Responsable Algues &amp; Durabilité</p>
-            <p class="member-bio">Elle bichonne nos cultures d'algues comme un grand chef, toujours au top de leur forme.</p>
+            <span class="member-photo">👨‍🔬</span><h3>Nathan Rambourg</h3>
+            <p class="member-role">Responsable Algues &amp; R&amp;D</p>
+            <p class="member-bio">Il bichonne nos cultures d'algues comme un grand chef et affine sans cesse leur pouvoir filtrant.</p>
+          </article>
+          <article class="card member">
+            <span class="member-photo">👨‍💻</span><h3>Keny Bel</h3>
+            <p class="member-role">Responsable Commercial &amp; Communication</p>
+            <p class="member-bio">Il porte la voix d'EcoDrive auprès des clients et fait rayonner l'air pur (et la marque).</p>
           </article>
         </div>
-        <p class="team-quote">« On ne vend pas un pot d'échappement. On vend une bouffée d'air frais. » — Marine, PDG 💙</p>
+        <p class="team-quote">« On ne vend pas un pot d'échappement. On vend une bouffée d'air frais. » — Quentin, PDG 💙</p>
       </div>
     </section>
 

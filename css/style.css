@@ -255,6 +255,7 @@ sub { font-size: .65em; }
 .review-author small { display: block; color: var(--muted); }
 
 /* ===================== Équipe ===================== */
+.team { grid-template-columns: repeat(4, 1fr); }
 .member { text-align: center; }
 .member-photo { display: grid; place-items: center; width: 84px; height: 84px; margin: 0 auto 1rem; border-radius: 50%; background: rgba(0,182,166,.12); font-size: 2.4rem; }
 .member-role { color: var(--aqua); font-family: "Poppins", sans-serif; font-weight: 600; font-size: .92rem; margin-bottom: .7rem; }
@@ -517,6 +518,7 @@ sub { font-size: .65em; }
   .hero-cta { justify-content: center; }
   .hero-visual { order: -1; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .team { grid-template-columns: repeat(2, 1fr); }
 
   .nav-toggle { display: flex; }
   .nav-links {
@@ -550,6 +552,7 @@ sub { font-size: .65em; }
 
 @media (max-width: 520px) {
   .stats { grid-template-columns: 1fr; }
+  .team { grid-template-columns: 1fr; }
   .section { padding: 3.5rem 0; }
   .pd-specs { grid-template-columns: 1fr; }
   .pd-buy { flex-direction: column; align-items: stretch; }
