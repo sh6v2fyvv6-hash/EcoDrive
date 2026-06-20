@@ -183,6 +183,84 @@ sub { font-size: .65em; }
 .footer-links a:hover { color: var(--aqua); }
 .footer-copy { width: 100%; text-align: center; border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.5rem; margin: 1rem 0 0; font-size: .85rem; color: #8b9aa1; }
 
+/* ===================== Nav (ajustement multi-liens) ===================== */
+.nav-links { gap: 1.15rem; }
+.nav-links a:not(.btn) { font-size: .9rem; }
+
+.btn-block { width: 100%; }
+
+.hero-cheese { margin-top: 1.4rem; font-size: .9rem; color: var(--blue); font-weight: 600; }
+
+/* ===================== Marquee (bandeau pub) ===================== */
+.marquee { overflow: hidden; background: var(--gradient); color: #fff; padding: .7rem 0; white-space: nowrap; }
+.marquee-track { display: inline-flex; gap: 2.5rem; align-items: center; animation: marquee 26s linear infinite; will-change: transform; }
+.marquee-track span { font-family: "Poppins", sans-serif; font-weight: 600; font-size: .95rem; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ===================== Configurateur ===================== */
+.configurator { align-items: start; }
+.config-step { margin-top: 1.8rem; }
+.diameter-options, .algae-options { display: flex; flex-wrap: wrap; gap: .6rem; }
+.diameter {
+  font-family: "Poppins", sans-serif; font-weight: 600; font-size: .95rem;
+  padding: .7rem 1.1rem; border-radius: 999px; cursor: pointer;
+  border: 2px solid var(--border); background: #fff; color: var(--charcoal);
+  transition: .18s ease;
+}
+.diameter:hover { border-color: var(--aqua); transform: translateY(-2px); }
+.diameter.is-active { background: var(--gradient); border-color: transparent; color: #fff; box-shadow: 0 8px 18px rgba(0,182,166,.3); }
+
+.algae { display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1rem; border: 2px solid var(--border); border-radius: 999px; cursor: pointer; font-size: .92rem; transition: .18s; }
+.algae:has(input:checked) { border-color: var(--aqua); background: rgba(0,182,166,.08); }
+.algae input { accent-color: var(--aqua); }
+.badge { background: var(--aqua); color: #fff; font-size: .72rem; font-weight: 700; padding: .1rem .5rem; border-radius: 999px; }
+
+.config-summary { position: sticky; top: 90px; background: var(--charcoal); color: #fff; border: 0; }
+.config-summary h3, .config-summary strong { color: #fff; }
+.summary-eyebrow { font-family: "Poppins", sans-serif; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--aqua); }
+.summary-diam strong { font-family: "Poppins", sans-serif; font-size: 2rem; display: block; margin: .3rem 0 .1rem; }
+.summary-type { color: #b9c4ca; margin-bottom: 1.2rem; }
+.summary-list { list-style: none; margin: 0 0 1.3rem; padding: 0; display: grid; gap: .5rem; }
+.summary-list li { font-size: .95rem; color: #e6ecef; }
+.summary-price { display: flex; align-items: baseline; gap: .5rem; margin-bottom: 1.1rem; }
+.summary-price .from { color: #9fb0b7; font-size: .85rem; }
+.summary-price strong { font-family: "Poppins", sans-serif; font-size: 2.4rem; }
+.summary-price small { font-size: 1rem; font-weight: 500; }
+.summary-note { font-size: .8rem; color: #9fb0b7; margin: .8rem 0 0; text-align: center; }
+
+/* ===================== Offres / Plans ===================== */
+.plans { align-items: stretch; }
+.plan { display: flex; flex-direction: column; position: relative; }
+.plan-name { font-size: 1.25rem; margin-bottom: .4rem; }
+.plan-price { display: flex; align-items: baseline; gap: .2rem; }
+.plan-price strong { font-family: "Poppins", sans-serif; font-size: 2.3rem; color: var(--blue); }
+.plan-price small { color: var(--muted); font-weight: 500; }
+.plan-billed { color: var(--muted); font-size: .85rem; margin-bottom: 1.2rem; }
+.plan-feats { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: .6rem; flex: 1; }
+.plan-feats li { font-size: .92rem; }
+.plan-featured { border: 2px solid var(--aqua); box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+.plan-flag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gradient); color: #fff; font-family: "Poppins", sans-serif; font-weight: 600; font-size: .8rem; padding: .25rem .9rem; border-radius: 999px; white-space: nowrap; }
+.plan-featured .plan-price strong { color: var(--aqua); }
+.plan-note { margin: .9rem 0 0; font-size: .82rem; font-style: italic; color: var(--muted); text-align: center; }
+
+.guarantee-banner { margin: 2.5rem auto 0; max-width: 760px; text-align: center; background: rgba(0,182,166,.1); border: 1px dashed var(--aqua); border-radius: var(--radius); padding: 1.2rem 1.5rem; color: var(--charcoal); font-size: 1rem; }
+
+/* ===================== Avis ===================== */
+.review { display: flex; flex-direction: column; }
+.stars { color: #f6b500; font-size: 1.15rem; letter-spacing: 2px; margin-bottom: .8rem; }
+.review-text { flex: 1; color: var(--charcoal); }
+.review-author { display: flex; align-items: center; gap: .8rem; margin-top: 1rem; }
+.avatar { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--gradient); color: #fff; font-family: "Poppins", sans-serif; font-weight: 700; font-size: .9rem; }
+.review-author small { display: block; color: var(--muted); }
+
+/* ===================== Équipe ===================== */
+.member { text-align: center; }
+.member-photo { display: grid; place-items: center; width: 84px; height: 84px; margin: 0 auto 1rem; border-radius: 50%; background: rgba(0,182,166,.12); font-size: 2.4rem; }
+.member-role { color: var(--aqua); font-family: "Poppins", sans-serif; font-weight: 600; font-size: .92rem; margin-bottom: .7rem; }
+.member-bio { color: var(--muted); font-size: .92rem; }
+.team-quote { margin: 2.5rem auto 0; max-width: 640px; text-align: center; font-family: "Poppins", sans-serif; font-weight: 500; font-size: 1.15rem; color: var(--charcoal); }
+
 /* ===================== Responsive ===================== */
 @media (max-width: 860px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
@@ -201,7 +279,11 @@ sub { font-size: .65em; }
   }
   .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .nav-links a { padding: .8rem 0; border-bottom: 1px solid var(--border); }
+  .nav-links a:not(.btn) { font-size: 1rem; }
   .nav-links a.btn { margin-top: .6rem; border-bottom: 0; }
+
+  .config-summary { position: static; }
+  .plan-featured { transform: none; }
 }
 
 @media (max-width: 520px) {

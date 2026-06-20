@@ -35,9 +35,11 @@
       </button>
 
       <nav class="nav-links" aria-label="Navigation principale">
-        <a href="#mission">Mission</a>
         <a href="#produit">Produit</a>
-        <a href="#caracteristiques">Caractéristiques</a>
+        <a href="#configurateur">Configurer</a>
+        <a href="#offres">Offres</a>
+        <a href="#avis">Avis</a>
+        <a href="#equipe">Qui sommes-nous</a>
         <a href="#contact" class="btn btn-ghost">Contact</a>
       </nav>
     </div>
@@ -55,9 +57,10 @@
             d'énergie propre à base d'algues qui capture le CO<sub>2</sub> et libère de l'O<sub>2</sub>.
           </p>
           <div class="hero-cta">
-            <a href="#produit" class="btn btn-primary">Découvrir AlgO2</a>
-            <a href="#contact" class="btn btn-outline">Nous contacter</a>
+            <a href="#offres" class="btn btn-primary">Je veux changer ma vie 🚀</a>
+            <a href="#produit" class="btn btn-outline">Découvrir AlgO2</a>
           </div>
+          <p class="hero-cheese">⭐️ Plus de 12 000 conducteurs respirent déjà mieux. Et si c'était votre tour ?</p>
         </div>
         <div class="hero-visual" aria-hidden="true">
           <img src="assets/logo-ecodrive.svg" alt="" class="hero-logo" />
@@ -65,6 +68,23 @@
         </div>
       </div>
     </section>
+
+    <!-- ====================== BANDEAU "PUB" ====================== -->
+    <div class="marquee" aria-label="Slogans EcoDrive">
+      <div class="marquee-track">
+        <span>🌊 AlgO2, ça va LITTÉRALEMENT changer votre vie&nbsp;!</span>
+        <span>😮‍💨 Vos poumons vous diront MERCI</span>
+        <span>😎 Roulez propre, respirez mieux, brillez en société</span>
+        <span>🤯 Le seul pot qui transforme vos bouchons en air pur</span>
+        <span>🚀 Rejoignez la révolution, vos voisins seront JALOUX</span>
+        <!-- duplicata pour le défilement infini -->
+        <span>🌊 AlgO2, ça va LITTÉRALEMENT changer votre vie&nbsp;!</span>
+        <span>😮‍💨 Vos poumons vous diront MERCI</span>
+        <span>😎 Roulez propre, respirez mieux, brillez en société</span>
+        <span>🤯 Le seul pot qui transforme vos bouchons en air pur</span>
+        <span>🚀 Rejoignez la révolution, vos voisins seront JALOUX</span>
+      </div>
+    </div>
 
     <!-- ====================== MISSION & VALEURS ====================== -->
     <section class="section" id="mission">
@@ -179,6 +199,217 @@
       </div>
     </section>
 
+    <!-- ====================== CONFIGURATEUR ====================== -->
+    <section class="section section-tinted" id="configurateur">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Sur-mesure</span>
+          <h2>Configurez votre AlgO<sub>2</sub></h2>
+          <p class="section-sub">
+            Chaque véhicule est unique&nbsp;: choisissez le diamètre parfait et laissez la magie des algues opérer&nbsp;! ✨
+          </p>
+        </div>
+
+        <div class="grid grid-2 configurator">
+          <div class="card config-panel">
+            <h3>1. Choisissez votre diamètre</h3>
+            <div class="diameter-options" role="radiogroup" aria-label="Diamètre du pot">
+              <button class="diameter" data-d="50" data-type="Citadine &amp; petite cylindrée" data-price="34">Ø 50 mm</button>
+              <button class="diameter is-active" data-d="60" data-type="Berline &amp; compacte" data-price="39">Ø 60 mm</button>
+              <button class="diameter" data-d="63" data-type="SUV &amp; familiale" data-price="44">Ø 63 mm</button>
+              <button class="diameter" data-d="76" data-type="Sportive &amp; routière" data-price="49">Ø 76 mm</button>
+              <button class="diameter" data-d="89" data-type="Utilitaire &amp; gros gabarit" data-price="59">Ø 89 mm</button>
+            </div>
+
+            <h3 class="config-step">2. Votre rythme d'algues 🌿</h3>
+            <div class="algae-options" role="radiogroup" aria-label="Renouvellement des algues">
+              <label class="algae"><input type="radio" name="algae" value="6" checked /> Tous les 6 mois <span class="badge">recommandé</span></label>
+              <label class="algae"><input type="radio" name="algae" value="12" /> Tous les 12 mois</label>
+            </div>
+          </div>
+
+          <aside class="card config-summary" aria-live="polite">
+            <span class="summary-eyebrow">Votre configuration</span>
+            <div class="summary-diam"><strong id="sumDiam">Ø 60 mm</strong></div>
+            <p class="summary-type" id="sumType">Idéal pour&nbsp;: Berline &amp; compacte</p>
+            <ul class="summary-list">
+              <li>✅ Installation du pot <strong>OFFERTE</strong></li>
+              <li>✅ Renouvellement des algues <span id="sumAlgae">tous les 6 mois</span></li>
+              <li>✅ Garantie sérénité incluse</li>
+            </ul>
+            <div class="summary-price">
+              <span class="from">à partir de</span>
+              <strong><span id="sumPrice">39</span>€<small>/mois</small></strong>
+            </div>
+            <a href="#offres" class="btn btn-primary btn-block">Je m'abonne, ça change la vie&nbsp;! 🚀</a>
+            <p class="summary-note">Sans engagement après la 1<sup>re</sup> année. Annulez quand vous voulez.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== OFFRES / ABONNEMENT ====================== -->
+    <section class="section" id="offres">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Offres &amp; abonnements</span>
+          <h2>Un air pur, sans y penser 🌬️</h2>
+          <p class="section-sub">
+            Installation offerte, algues toujours fraîches, garantie incluse. Vous roulez, on s'occupe du reste&nbsp;!
+          </p>
+        </div>
+
+        <div class="grid grid-3 plans">
+          <!-- Découverte -->
+          <article class="card plan">
+            <h3 class="plan-name">Découverte</h3>
+            <div class="plan-price"><strong>29€</strong><small>/mois</small></div>
+            <p class="plan-billed">facturé annuellement</p>
+            <ul class="plan-feats">
+              <li>✅ Pot AlgO<sub>2</sub> installé <strong>gratuitement</strong></li>
+              <li>✅ Renouvellement des algues <strong>tous les 12 mois</strong></li>
+              <li>✅ Garantie 2 ans</li>
+              <li>✅ Suivi de votre CO<sub>2</sub> évité</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block">Choisir Découverte</a>
+          </article>
+
+          <!-- Premium (mise en avant) -->
+          <article class="card plan plan-featured">
+            <span class="plan-flag">⭐ Le plus populaire</span>
+            <h3 class="plan-name">Premium Annuel</h3>
+            <div class="plan-price"><strong>39€</strong><small>/mois</small></div>
+            <p class="plan-billed">facturé annuellement — 2 mois offerts&nbsp;!</p>
+            <ul class="plan-feats">
+              <li>✅ Pot AlgO<sub>2</sub> installé <strong>gratuitement</strong></li>
+              <li>✅ Renouvellement des algues <strong>tous les 6 mois</strong></li>
+              <li>✅ <strong>Garantie sérénité 5 ans</strong> (pièces, main d'œuvre &amp; algues)</li>
+              <li>✅ Remplacement express en 24&nbsp;h</li>
+              <li>✅ Bilan environnemental personnalisé</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-block">Je passe au Premium 🚀</a>
+            <p class="plan-note">« La meilleure décision de ma vie. » — un client (très) heureux</p>
+          </article>
+
+          <!-- Pro -->
+          <article class="card plan">
+            <h3 class="plan-name">Flotte / Pro</h3>
+            <div class="plan-price"><strong>Sur devis</strong></div>
+            <p class="plan-billed">pour les entreprises &amp; collectivités</p>
+            <ul class="plan-feats">
+              <li>✅ Équipement de toute votre flotte</li>
+              <li>✅ Renouvellement des algues <strong>tous les 6 mois</strong></li>
+              <li>✅ Garantie étendue &amp; SAV dédié</li>
+              <li>✅ Reporting RSE prêt à présenter</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block">Demander un devis</a>
+          </article>
+        </div>
+
+        <p class="guarantee-banner">
+          🛡️ <strong>Garantie « Satisfait ou on plante des algues »</strong> — 30 jours pour tomber amoureux d'AlgO<sub>2</sub>, ou on vous rembourse. Promis, juré, oxygéné.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================== AVIS CLIENTS ====================== -->
+    <section class="section section-tinted" id="avis">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Ils ont changé de vie</span>
+          <h2>Des clients sur un petit nuage ☁️</h2>
+          <p class="section-sub">Note moyenne <strong>4,9/5</strong> sur 12 480 conducteurs comblés.</p>
+        </div>
+
+        <div class="grid grid-3 reviews">
+          <article class="card review">
+            <div class="stars" aria-label="5 sur 5">★★★★★</div>
+            <p class="review-text">
+              « Depuis que j'ai installé AlgO<sub>2</sub>, ma voiture sent la <strong>brise marine</strong> et mes
+              poumons font la fête. Mes collègues me demandent mon secret. JE. NE. PEUX. PLUS. M'EN. PASSER. »
+            </p>
+            <div class="review-author">
+              <span class="avatar" aria-hidden="true">JM</span>
+              <div><strong>Jean-Michel D.</strong><small>Berline · client Premium</small></div>
+            </div>
+          </article>
+
+          <article class="card review">
+            <div class="stars" aria-label="5 sur 5">★★★★★</div>
+            <p class="review-text">
+              « J'étais sceptique… puis BOUM. Air pur, conscience tranquille, voisins jaloux.
+              C'est simple&nbsp;: <strong>AlgO<sub>2</sub> a changé ma vie</strong>. Je le dis à tout le monde, même au boulanger. »
+            </p>
+            <div class="review-author">
+              <span class="avatar" aria-hidden="true">SL</span>
+              <div><strong>Sophie L.</strong><small>SUV · cliente Premium</small></div>
+            </div>
+          </article>
+
+          <article class="card review">
+            <div class="stars" aria-label="5 sur 5">★★★★★</div>
+            <p class="review-text">
+              « Le renouvellement des algues tous les 6 mois, c'est magique&nbsp;: je ne fais RIEN et ma voiture
+              dépollue. On m'a dit que je rayonnais. C'était peut-être l'oxygène. 🌿 »
+            </p>
+            <div class="review-author">
+              <span class="avatar" aria-hidden="true">KP</span>
+              <div><strong>Karim P.</strong><small>Citadine · client Premium</small></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== QUI SOMMES-NOUS / ÉQUIPE ====================== -->
+    <section class="section" id="equipe">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Qui sommes-nous&nbsp;?</span>
+          <h2>Les humains derrière les algues 🌱</h2>
+          <p class="section-sub">
+            Une équipe de passionnés qui croit qu'on peut rouler <em>et</em> respirer. Oui, les deux.
+          </p>
+        </div>
+
+        <div class="grid grid-3 team">
+          <article class="card member">
+            <span class="member-photo" aria-hidden="true">👩‍🔬</span>
+            <h3>Marine Lebleu</h3>
+            <p class="member-role">PDG &amp; Fondatrice</p>
+            <p class="member-bio">
+              Ingénieure et amoureuse des océans, Marine a fondé EcoDrive avec une obsession&nbsp;:
+              transformer chaque trajet en geste pour la planète.
+            </p>
+          </article>
+
+          <article class="card member">
+            <span class="member-photo" aria-hidden="true">👨‍🔧</span>
+            <h3>Tom Vasseur</h3>
+            <p class="member-role">Directeur Technique (CTO)</p>
+            <p class="member-bio">
+              Cerveau du pot AlgO<sub>2</sub>, Tom a passé 1 000 nuits à faire cohabiter micro-algues
+              et hautes températures. Spoiler&nbsp;: ça marche.
+            </p>
+          </article>
+
+          <article class="card member">
+            <span class="member-photo" aria-hidden="true">👩‍🌾</span>
+            <h3>Inès Caron</h3>
+            <p class="member-role">Responsable Algues &amp; Durabilité</p>
+            <p class="member-bio">
+              Elle bichonne nos cultures d'algues comme un grand chef. Résultat&nbsp;: des renouvellements
+              tous les 6 mois, toujours au top de leur forme.
+            </p>
+          </article>
+        </div>
+
+        <p class="team-quote">
+          « On ne vend pas un pot d'échappement. On vend une bouffée d'air frais. » — Marine, PDG 💙
+        </p>
+      </div>
+    </section>
+
     <!-- ====================== CONTACT ====================== -->
     <section class="section section-tinted" id="contact">
       <div class="container">
@@ -230,9 +461,11 @@
         <p>Clean Energy. Clean Oceans. Better Future.</p>
       </div>
       <nav class="footer-links" aria-label="Liens de pied de page">
-        <a href="#mission">Mission</a>
         <a href="#produit">Produit</a>
-        <a href="#caracteristiques">Caractéristiques</a>
+        <a href="#configurateur">Configurer</a>
+        <a href="#offres">Offres</a>
+        <a href="#avis">Avis</a>
+        <a href="#equipe">Qui sommes-nous</a>
         <a href="#contact">Contact</a>
       </nav>
       <p class="footer-copy">© <span id="year"></span> EcoDrive — AlgO<sub>2</sub>. Projet conceptuel.</p>

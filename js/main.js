@@ -25,6 +25,41 @@
     });
   }
 
+  // --- Configurateur AlgO2 (diamètre + algues) ---
+  var diameters = document.querySelectorAll(".diameter");
+  var algaeRadios = document.querySelectorAll('input[name="algae"]');
+  var sumDiam = document.getElementById("sumDiam");
+  var sumType = document.getElementById("sumType");
+  var sumPrice = document.getElementById("sumPrice");
+  var sumAlgae = document.getElementById("sumAlgae");
+
+  function updateSummary() {
+    var active = document.querySelector(".diameter.is-active");
+    if (!active || !sumDiam) return;
+
+    var base = parseInt(active.getAttribute("data-price"), 10);
+    sumDiam.textContent = "Ø " + active.getAttribute("data-d") + " mm";
+    sumType.textContent = "Idéal pour : " + active.getAttribute("data-type");
+
+    // Renouvellement tous les 6 mois = +5€/mois (algues toujours fraîches)
+    var checked = document.querySelector('input[name="algae"]:checked');
+    var every = checked ? checked.value : "6";
+    var price = every === "6" ? base : Math.max(base - 5, 0);
+
+    sumPrice.textContent = price;
+    sumAlgae.textContent = every === "6" ? "tous les 6 mois" : "tous les 12 mois";
+  }
+
+  diameters.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      diameters.forEach(function (b) { b.classList.remove("is-active"); });
+      btn.classList.add("is-active");
+      updateSummary();
+    });
+  });
+  algaeRadios.forEach(function (r) { r.addEventListener("change", updateSummary); });
+  updateSummary();
+
   // --- Formulaire de contact (démo, sans backend) ---
   var form = document.getElementById("contactForm");
   var status = document.getElementById("formStatus");
