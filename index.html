@@ -72,6 +72,72 @@
       </div>
     </div>
 
+    <!-- ====================== SCÈNE ANIMÉE AU DÉFILEMENT ====================== -->
+    <section id="howit" aria-label="AlgO2 en action">
+      <div class="howit-stage">
+        <div class="howit-sky"></div>
+
+        <div class="howit-intro">
+          <span class="kicker">Défilez ⬇</span>
+          <h2>AlgO<sub>2</sub> en action</h2>
+          <p>Suivez la voiture et découvrez le dispositif&nbsp;: tube en aluminium + cartouche d'algues.</p>
+        </div>
+
+        <!-- Voiture (vue de profil) avec pot AlgO2 -->
+        <div class="howit-car">
+          <svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voiture équipée d'un pot AlgO2">
+            <!-- ombre -->
+            <ellipse cx="240" cy="188" rx="195" ry="14" fill="rgba(38,50,56,.18)"/>
+            <!-- carrosserie -->
+            <rect x="34" y="118" width="402" height="56" rx="24" fill="#0A4DA2"/>
+            <!-- cabine -->
+            <path d="M132 120 L176 74 Q182 66 192 66 L296 66 Q308 66 316 76 L344 120 Z" fill="#1565c4"/>
+            <!-- vitres -->
+            <path d="M150 116 L182 82 L232 82 L232 116 Z" fill="#cfe6f5"/>
+            <path d="M244 116 L244 82 L292 82 Q300 82 305 90 L324 116 Z" fill="#cfe6f5"/>
+            <!-- bas de caisse / phare -->
+            <rect x="34" y="150" width="402" height="22" rx="11" fill="#08407f"/>
+            <circle cx="430" cy="132" r="7" fill="#ffe9a8"/>
+            <circle cx="40" cy="140" r="5" fill="#d64545"/>
+            <!-- roues -->
+            <g>
+              <circle cx="138" cy="172" r="34" fill="#263238"/>
+              <circle cx="138" cy="172" r="15" fill="#aeb8bd"/>
+              <circle cx="138" cy="172" r="5" fill="#5b676d"/>
+            </g>
+            <g>
+              <circle cx="348" cy="172" r="34" fill="#263238"/>
+              <circle cx="348" cy="172" r="15" fill="#aeb8bd"/>
+              <circle cx="348" cy="172" r="5" fill="#5b676d"/>
+            </g>
+            <!-- POT AlgO2 (arrière) -->
+            <g class="howit-pot">
+              <rect x="404" y="150" width="52" height="22" rx="11" fill="#b9c2c7" stroke="#8e989d"/>
+              <rect x="430" y="153" width="14" height="16" rx="4" fill="#00B6A6"/>
+              <rect x="456" y="156" width="14" height="10" rx="3" fill="#9aa4a9"/>
+            </g>
+            <!-- bulles O2 (sortie purifiée) -->
+            <g class="howit-bubbles" fill="#00B6A6">
+              <circle class="b1" cx="478" cy="160" r="4"/>
+              <circle class="b2" cx="478" cy="160" r="3"/>
+              <circle class="b3" cx="478" cy="160" r="5"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Encart "cutaway" : le dispositif révélé -->
+        <aside class="howit-callout">
+          <h3>🔬 Le dispositif</h3>
+          <ul>
+            <li><span class="cut-dot alu"></span> <strong>Tube en aluminium</strong> — léger &amp; résistant</li>
+            <li><span class="cut-dot fil"></span> <strong>Cartouche d'algues</strong> — capte le CO<sub>2</sub></li>
+            <li><span class="cut-dot o2"></span> <strong>Sortie O<sub>2</sub></strong> — air purifié</li>
+          </ul>
+          <p class="howit-flow">CO<sub>2</sub> &nbsp;→&nbsp; 🌿 algues &nbsp;→&nbsp; O<sub>2</sub></p>
+        </aside>
+      </div>
+    </section>
+
     <!-- ====================== MISSION & VALEURS ====================== -->
     <section class="section" id="mission">
       <div class="container">
@@ -108,6 +174,34 @@
         <div class="grid grid-3" id="homeProducts"><!-- injecté par JS --></div>
         <div class="center-cta">
           <a href="produits.html" class="btn btn-primary">Voir tous les produits</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== MODÉLISATION 3D ====================== -->
+    <section class="section" id="model3d">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Exploration 3D</span>
+          <h2>Le pot AlgO<sub>2</sub> sous tous les angles 🔧</h2>
+          <p class="section-sub">Un tube en aluminium et sa cartouche filtrante aux algues. Faites-le pivoter&nbsp;!</p>
+        </div>
+
+        <div class="model3d-stage">
+          <div class="model3d-canvas" id="model3d-canvas">
+            <span class="model3d-hint">🖱️ Glissez pour faire pivoter • molette pour zoomer</span>
+          </div>
+
+          <ul class="model-legend">
+            <li><span class="dot" style="background:#c6d0d4"></span>
+              <div><strong>Tube en aluminium</strong><small>Léger, résistant à la chaleur et à la corrosion.</small></div></li>
+            <li><span class="dot" style="background:#00B6A6"></span>
+              <div><strong>Cartouche filtrante (algues)</strong><small>Capture le CO<sub>2</sub> et libère l'O<sub>2</sub>.</small></div></li>
+            <li><span class="dot" style="background:#9aa4a9"></span>
+              <div><strong>Entrée / sortie des gaz</strong><small>Gaz en entrée, air purifié en sortie.</small></div></li>
+            <li><span class="dot" style="background:#5b676d"></span>
+              <div><strong>Nervures de renfort</strong><small>Rigidité et tenue aux vibrations.</small></div></li>
+          </ul>
         </div>
       </div>
     </section>
@@ -199,5 +293,16 @@
 
   <script src="js/products.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- Modélisation 3D (Three.js via CDN, avec repli SVG) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="js/three-model.js"></script>
 </body>
 </html>

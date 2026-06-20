@@ -311,6 +311,29 @@
     }).join("");
   }
 
+  // ===================== Scène animée au défilement (accueil) =====================
+  var howit = document.getElementById("howit");
+  if (howit) {
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+    function onScroll() {
+      var rect = howit.getBoundingClientRect();
+      var total = howit.offsetHeight - window.innerHeight;
+      var progress = total > 0 ? clamp(-rect.top / total, 0, 1) : 0;
+      howit.style.setProperty("--p", progress.toFixed(4));
+    }
+    if (reduce) {
+      howit.style.setProperty("--p", "0.5");
+    } else {
+      var ticking = false;
+      window.addEventListener("scroll", function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(function () { onScroll(); ticking = false; }); }
+      }, { passive: true });
+      window.addEventListener("resize", onScroll);
+      onScroll();
+    }
+  }
+
   // ===================== Formulaire de contact =====================
   var form = document.getElementById("contactForm"), status = document.getElementById("formStatus");
   if (form && status) {
