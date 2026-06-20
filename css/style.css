@@ -438,15 +438,15 @@ sub { font-size: .65em; }
 .howit-intro h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
 .howit-intro p { color: var(--muted); }
 
-.howit-car { position: absolute; bottom: 20%; width: clamp(255px, 42vw, 470px); z-index: 2;
-   left: calc(var(--p) * 132% - 20%); will-change: left; }
+.howit-car { position: absolute; bottom: 20%; width: clamp(255px, 44vw, 500px); z-index: 2;
+   left: calc(var(--p) * 146% - 26%); will-change: left; }
 .howit-car svg { width: 100%; height: auto; overflow: visible; }
 .howit-pot { animation: potPulse 1.5s ease-in-out infinite; }
 @keyframes potPulse { 0%,100% { filter: drop-shadow(0 0 4px rgba(0,182,166,.55)); } 50% { filter: drop-shadow(0 0 11px rgba(0,182,166,.95)); } }
 .howit-bubbles circle { opacity: 0; animation: bubbleUp 1.9s linear infinite; }
 .howit-bubbles .b2 { animation-delay: .6s; }
 .howit-bubbles .b3 { animation-delay: 1.2s; }
-@keyframes bubbleUp { 0% { transform: translate(0,0) scale(.5); opacity: 0; } 20% { opacity: .9; } 100% { transform: translate(28px,-50px) scale(1.1); opacity: 0; } }
+@keyframes bubbleUp { 0% { transform: translate(0,0) scale(.5); opacity: 0; } 20% { opacity: .9; } 100% { transform: translate(-30px,-50px) scale(1.1); opacity: 0; } }
 
 .howit-callout { position: absolute; top: 15%; right: 5%; max-width: 320px; z-index: 3;
    background: #fff; border: 1px solid var(--border); border-left: 5px solid var(--aqua);
@@ -462,8 +462,8 @@ sub { font-size: .65em; }
 
 /* ===================== Modélisation 3D ===================== */
 .model3d-stage { display: grid; grid-template-columns: 1.4fr .9fr; gap: 2.2rem; align-items: center; }
-.model3d-canvas { position: relative; height: 450px; border-radius: var(--radius); overflow: hidden;
-   background: radial-gradient(circle at 50% 36%, #eef4f6, #d6e1e5 82%); box-shadow: var(--shadow); cursor: grab; }
+.model3d-canvas { position: relative; height: 460px; border-radius: var(--radius); overflow: hidden;
+   background: radial-gradient(120% 95% at 50% 22%, #f7fafb 0%, #e0e9ed 62%, #ccd8dd 100%); box-shadow: var(--shadow); cursor: grab; }
 .model3d-canvas:active { cursor: grabbing; }
 .model3d-canvas canvas { display: block; }
 .model3d-hint { position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; font-size: .78rem; color: var(--muted); pointer-events: none; z-index: 2; }

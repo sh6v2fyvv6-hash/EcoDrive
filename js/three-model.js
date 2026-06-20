@@ -33,7 +33,9 @@ async function initThree() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(width, height);
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
+  renderer.toneMappingExposure = 1.15;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   mount.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
@@ -47,18 +49,26 @@ async function initThree() {
 
   // Lumières
   scene.add(new THREE.HemisphereLight(0xffffff, 0x3a444a, 1.0));
-  const key = new THREE.DirectionalLight(0xffffff, 2.2);
-  key.position.set(5, 8, 6);
+  const key = new THREE.DirectionalLight(0xffffff, 2.4);
+  key.position.set(5, 9, 6);
+  key.castShadow = true;
+  key.shadow.mapSize.set(2048, 2048);
+  key.shadow.camera.near = 1;
+  key.shadow.camera.far = 30;
+  key.shadow.camera.left = -6; key.shadow.camera.right = 6;
+  key.shadow.camera.top = 6; key.shadow.camera.bottom = -6;
+  key.shadow.bias = -0.0004;
+  key.shadow.radius = 6;
   scene.add(key);
   const rim = new THREE.DirectionalLight(0xbfe9ff, 1.1);
   rim.position.set(-6, 2, -5);
   scene.add(rim);
 
   // --- Matériaux ---
-  const aluminium = new THREE.MeshStandardMaterial({ color: 0xc6d0d4, metalness: 0.95, roughness: 0.25 });
-  const chrome = new THREE.MeshStandardMaterial({ color: 0xe8eef0, metalness: 1.0, roughness: 0.12 });
-  const darkMetal = new THREE.MeshStandardMaterial({ color: 0x5b676d, metalness: 0.8, roughness: 0.45 });
-  const algae = new THREE.MeshStandardMaterial({ color: 0x00b6a6, metalness: 0.15, roughness: 0.6, emissive: 0x00b6a6, emissiveIntensity: 0.12 });
+  const aluminium = new THREE.MeshStandardMaterial({ color: 0xc8d2d6, metalness: 1.0, roughness: 0.22, envMapIntensity: 1.3 });
+  const chrome = new THREE.MeshStandardMaterial({ color: 0xeaf0f2, metalness: 1.0, roughness: 0.08, envMapIntensity: 1.5 });
+  const darkMetal = new THREE.MeshStandardMaterial({ color: 0x5b676d, metalness: 0.85, roughness: 0.4, envMapIntensity: 1.1 });
+  const algae = new THREE.MeshStandardMaterial({ color: 0x00b6a6, metalness: 0.1, roughness: 0.5, emissive: 0x00b6a6, emissiveIntensity: 0.14, envMapIntensity: 1.0 });
 
   // --- Assemblage du pot (axe vertical Y, puis couché à l'horizontale) ---
   const pot = new THREE.Group();
@@ -101,12 +111,25 @@ async function initThree() {
   pot.rotation.x = -0.15;
   scene.add(pot);
 
+  // Ombres portées sur tout le pot
+  pot.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+
+  // Sol invisible qui ne reçoit que l'ombre douce (look "studio")
+  const ground = new THREE.Mesh(
+    new THREE.PlaneGeometry(60, 60),
+    new THREE.ShadowMaterial({ opacity: 0.22 })
+  );
+  ground.rotation.x = -Math.PI / 2;
+  ground.position.y = -1.85;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
   // --- Contrôles ---
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.08;
   controls.autoRotate = true;
-  controls.autoRotateSpeed = 1.8;
+  controls.autoRotateSpeed = 1.4;
   controls.enablePan = false;
   controls.minDistance = 5;
   controls.maxDistance = 12;

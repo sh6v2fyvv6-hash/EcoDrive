@@ -85,42 +85,85 @@
 
         <!-- Voiture (vue de profil) avec pot AlgO2 -->
         <div class="howit-car">
-          <svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voiture équipée d'un pot AlgO2">
-            <!-- ombre -->
-            <ellipse cx="240" cy="188" rx="195" ry="14" fill="rgba(38,50,56,.18)"/>
+          <svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voiture équipée d'un pot AlgO2">
+            <defs>
+              <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2a6fd6"/><stop offset=".5" stop-color="#0A4DA2"/><stop offset="1" stop-color="#063b81"/>
+              </linearGradient>
+              <linearGradient id="winGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e2f2fb"/><stop offset="1" stop-color="#a6c6dd"/>
+              </linearGradient>
+              <radialGradient id="rimGrad" cx=".5" cy=".4" r=".6">
+                <stop offset="0" stop-color="#eef2f4"/><stop offset="1" stop-color="#98a2a8"/>
+              </radialGradient>
+              <linearGradient id="potGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#d8dee2"/><stop offset="1" stop-color="#98a2a8"/>
+              </linearGradient>
+            </defs>
+
+            <!-- ombre au sol -->
+            <ellipse cx="262" cy="214" rx="216" ry="13" fill="rgba(38,50,56,.20)"/>
+
             <!-- carrosserie -->
-            <rect x="34" y="118" width="402" height="56" rx="24" fill="#0A4DA2"/>
-            <!-- cabine -->
-            <path d="M132 120 L176 74 Q182 66 192 66 L296 66 Q308 66 316 76 L344 120 Z" fill="#1565c4"/>
+            <path d="M470 150 C472 134 466 126 452 124 L416 110 C410 104 402 100 392 100 L356 98 L304 60
+                     C300 58 296 56 290 56 L214 56 C206 56 200 60 196 68 L168 100 L96 104
+                     C80 105 70 114 67 130 L64 150 L78 168 L104 168 C104 142 114 132 140 132
+                     C166 132 176 142 176 168 L344 168 C344 142 354 132 380 132 C406 132 416 142 416 168 L470 168 Z"
+                  fill="url(#bodyGrad)"/>
+            <!-- ligne de caractère -->
+            <path d="M150 124 H420" stroke="#3f86e6" stroke-width="3" opacity=".55" stroke-linecap="round"/>
+
             <!-- vitres -->
-            <path d="M150 116 L182 82 L232 82 L232 116 Z" fill="#cfe6f5"/>
-            <path d="M244 116 L244 82 L292 82 Q300 82 305 90 L324 116 Z" fill="#cfe6f5"/>
-            <!-- bas de caisse / phare -->
-            <rect x="34" y="150" width="402" height="22" rx="11" fill="#08407f"/>
-            <circle cx="430" cy="132" r="7" fill="#ffe9a8"/>
-            <circle cx="40" cy="140" r="5" fill="#d64545"/>
-            <!-- roues -->
-            <g>
-              <circle cx="138" cy="172" r="34" fill="#263238"/>
-              <circle cx="138" cy="172" r="15" fill="#aeb8bd"/>
-              <circle cx="138" cy="172" r="5" fill="#5b676d"/>
-            </g>
-            <g>
-              <circle cx="348" cy="172" r="34" fill="#263238"/>
-              <circle cx="348" cy="172" r="15" fill="#aeb8bd"/>
-              <circle cx="348" cy="172" r="5" fill="#5b676d"/>
-            </g>
-            <!-- POT AlgO2 (arrière) -->
+            <path d="M214 60 L250 60 L250 96 L184 96 Z" fill="url(#winGrad)"/>
+            <path d="M258 60 L300 60 L342 96 L258 96 Z" fill="url(#winGrad)"/>
+            <!-- rétroviseur -->
+            <path d="M342 88 l13 -1 l1 7 l-13 2 z" fill="#063b81"/>
+
+            <!-- lignes de portes -->
+            <line x1="254" y1="98" x2="254" y2="150" stroke="#063b81" stroke-width="2" opacity=".5"/>
+            <line x1="356" y1="100" x2="360" y2="150" stroke="#063b81" stroke-width="2" opacity=".4"/>
+            <!-- poignées -->
+            <rect x="226" y="116" width="20" height="5" rx="2.5" fill="#cdd9e6"/>
+            <rect x="296" y="116" width="20" height="5" rx="2.5" fill="#cdd9e6"/>
+
+            <!-- feux -->
+            <path d="M452 116 q15 1 17 12 l-19 2 z" fill="#fdf2c4"/>
+            <path d="M66 112 q-3 1 -3 9 l12 1 z" fill="#e23b3b"/>
+
+            <!-- POT AlgO2 (arrière gauche) -->
             <g class="howit-pot">
-              <rect x="404" y="150" width="52" height="22" rx="11" fill="#b9c2c7" stroke="#8e989d"/>
-              <rect x="430" y="153" width="14" height="16" rx="4" fill="#00B6A6"/>
-              <rect x="456" y="156" width="14" height="10" rx="3" fill="#9aa4a9"/>
+              <rect x="30" y="164" width="48" height="22" rx="11" fill="url(#potGrad)" stroke="#8e989d"/>
+              <rect x="49" y="167" width="14" height="16" rx="4" fill="#00B6A6"/>
+              <rect x="16" y="170" width="16" height="10" rx="3" fill="#9aa4a9"/>
             </g>
             <!-- bulles O2 (sortie purifiée) -->
             <g class="howit-bubbles" fill="#00B6A6">
-              <circle class="b1" cx="478" cy="160" r="4"/>
-              <circle class="b2" cx="478" cy="160" r="3"/>
-              <circle class="b3" cx="478" cy="160" r="5"/>
+              <circle class="b1" cx="14" cy="174" r="4"/>
+              <circle class="b2" cx="14" cy="174" r="3"/>
+              <circle class="b3" cx="14" cy="174" r="5"/>
+            </g>
+
+            <!-- roue arrière -->
+            <g>
+              <circle cx="140" cy="178" r="40" fill="#1c2429"/>
+              <circle cx="140" cy="178" r="26" fill="url(#rimGrad)"/>
+              <g stroke="#8e989d" stroke-width="5" stroke-linecap="round">
+                <line x1="140" y1="154" x2="140" y2="202"/>
+                <line x1="119" y1="166" x2="161" y2="190"/>
+                <line x1="119" y1="190" x2="161" y2="166"/>
+              </g>
+              <circle cx="140" cy="178" r="7" fill="#5b676d"/>
+            </g>
+            <!-- roue avant -->
+            <g>
+              <circle cx="380" cy="178" r="40" fill="#1c2429"/>
+              <circle cx="380" cy="178" r="26" fill="url(#rimGrad)"/>
+              <g stroke="#8e989d" stroke-width="5" stroke-linecap="round">
+                <line x1="380" y1="154" x2="380" y2="202"/>
+                <line x1="359" y1="166" x2="401" y2="190"/>
+                <line x1="359" y1="190" x2="401" y2="166"/>
+              </g>
+              <circle cx="380" cy="178" r="7" fill="#5b676d"/>
             </g>
           </svg>
         </div>
