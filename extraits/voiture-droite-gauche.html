@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extrait — Voiture (défilement droite → gauche)</title>
+  <style>
+    /* Variables minimales (reprises de la charte EcoDrive) */
+    :root{
+      --aqua:#00B6A6; --charcoal:#263238; --muted:#5b6b72; --border:#e3eaec;
+      --radius:16px; --shadow-lg:0 20px 50px rgba(10,77,162,.14);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    *{box-sizing:border-box;} body{margin:0;color:var(--charcoal);}
+    .pre, .post{height:60vh; display:grid; place-items:center; color:var(--muted); background:#f3f8f9;}
+
+    /* ===================== Scène animée au défilement ===================== */
+    #howit { position: relative; height: 260vh; --p: 0; }
+    .howit-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; background: linear-gradient(180deg, #eaf6fb 0%, #f3f8f9 55%, #e6edef 100%); }
+    .howit-sky { position: absolute; inset: 0; background:
+       radial-gradient(130px 60px at 18% 20%, rgba(255,255,255,.95), transparent 70%),
+       radial-gradient(170px 70px at 68% 14%, rgba(255,255,255,.85), transparent 70%),
+       radial-gradient(110px 50px at 88% 26%, rgba(255,255,255,.8), transparent 70%);
+       background-repeat: no-repeat; }
+    .howit-stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 24%; background: linear-gradient(180deg, #32424a, #25323a); }
+    .howit-stage::before { content: ""; position: absolute; left: 0; right: 0; bottom: 11%; height: 4px; z-index: 1;
+       background: repeating-linear-gradient(90deg, #ffd54a 0 42px, transparent 42px 96px);
+       background-position-x: calc(var(--p) * -1700px); opacity: .9; }
+
+    .howit-intro { position: absolute; top: 12%; left: 6%; max-width: 360px; z-index: 3;
+       opacity: clamp(0, calc(1.1 - var(--p) * 3), 1); transform: translateY(calc(var(--p) * -12px)); }
+    .howit-intro h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin:.2rem 0; }
+    .howit-intro p { color: var(--muted); }
+
+    /* >>> déplacement DROITE -> GAUCHE + voiture orientée dans ce sens <<< */
+    .howit-car { position: absolute; bottom: 20%; width: clamp(255px, 44vw, 500px); z-index: 2;
+       left: calc((1 - var(--p)) * 146% - 26%); transform: scaleX(-1); will-change: left; }
+    .howit-car svg { width: 100%; height: auto; overflow: visible; }
+
+    .howit-pot { animation: potPulse 1.5s ease-in-out infinite; }
+    @keyframes potPulse { 0%,100% { filter: drop-shadow(0 0 4px rgba(0,182,166,.55)); } 50% { filter: drop-shadow(0 0 11px rgba(0,182,166,.95)); } }
+    .howit-bubbles circle { opacity: 0; animation: bubbleUp 1.9s linear infinite; }
+    .howit-bubbles .b2 { animation-delay: .6s; }
+    .howit-bubbles .b3 { animation-delay: 1.2s; }
+    @keyframes bubbleUp { 0% { transform: translate(0,0) scale(.5); opacity: 0; } 20% { opacity: .9; } 100% { transform: translate(-30px,-50px) scale(1.1); opacity: 0; } }
+
+    .howit-callout { position: absolute; top: 15%; right: 5%; max-width: 320px; z-index: 3;
+       background: #fff; border: 1px solid var(--border); border-left: 5px solid var(--aqua);
+       border-radius: var(--radius); padding: 1.2rem 1.4rem; box-shadow: var(--shadow-lg);
+       opacity: clamp(0, calc((var(--p) - 0.3) * 5), 1);
+       transform: translateY(calc((1 - clamp(0, calc((var(--p) - 0.3) * 5), 1)) * 18px)); }
+    .howit-callout h3 { margin: 0 0 .7rem; }
+    .howit-callout ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+    .howit-callout li { font-size: .92rem; display: flex; align-items: center; gap: .55rem; }
+    .cut-dot { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0; }
+    .cut-dot.alu { background: #c6d0d4; } .cut-dot.fil { background: #00B6A6; } .cut-dot.o2 { background: #9aa4a9; }
+  </style>
+</head>
+<body>
+  <div class="pre">↓ Défilez vers le bas</div>
+
+  <!-- ====================== SCÈNE ====================== -->
+  <section id="howit" aria-label="Voiture qui passe (droite vers gauche)">
+    <div class="howit-stage">
+      <div class="howit-sky"></div>
+
+      <div class="howit-intro">
+        <h2>La voiture passe 🚗</h2>
+        <p>Défilez vers le bas&nbsp;: elle va de la droite vers la gauche (et inversement en remontant).</p>
+      </div>
+
+      <!-- Voiture (vue de profil) avec pot AlgO2 -->
+      <div class="howit-car">
+        <svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voiture équipée d'un pot AlgO2">
+          <defs>
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2a6fd6"/><stop offset=".5" stop-color="#0A4DA2"/><stop offset="1" stop-color="#063b81"/>
+            </linearGradient>
+            <linearGradient id="winGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e2f2fb"/><stop offset="1" stop-color="#a6c6dd"/>
+            </linearGradient>
+            <radialGradient id="rimGrad" cx=".5" cy=".4" r=".6">
+              <stop offset="0" stop-color="#eef2f4"/><stop offset="1" stop-color="#98a2a8"/>
+            </radialGradient>
+            <linearGradient id="potGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#d8dee2"/><stop offset="1" stop-color="#98a2a8"/>
+            </linearGradient>
+          </defs>
+
+          <!-- ombre au sol -->
+          <ellipse cx="262" cy="214" rx="216" ry="13" fill="rgba(38,50,56,.20)"/>
+
+          <!-- carrosserie -->
+          <path d="M470 150 C472 134 466 126 452 124 L416 110 C410 104 402 100 392 100 L356 98 L304 60
+                   C300 58 296 56 290 56 L214 56 C206 56 200 60 196 68 L168 100 L96 104
+                   C80 105 70 114 67 130 L64 150 L78 168 L104 168 C104 142 114 132 140 132
+                   C166 132 176 142 176 168 L344 168 C344 142 354 132 380 132 C406 132 416 142 416 168 L470 168 Z"
+                fill="url(#bodyGrad)"/>
+          <!-- ligne de caractère -->
+          <path d="M150 124 H420" stroke="#3f86e6" stroke-width="3" opacity=".55" stroke-linecap="round"/>
+
+          <!-- vitres -->
+          <path d="M214 60 L250 60 L250 96 L184 96 Z" fill="url(#winGrad)"/>
+          <path d="M258 60 L300 60 L342 96 L258 96 Z" fill="url(#winGrad)"/>
+          <!-- rétroviseur -->
+          <path d="M342 88 l13 -1 l1 7 l-13 2 z" fill="#063b81"/>
+
+          <!-- lignes de portes -->
+          <line x1="254" y1="98" x2="254" y2="150" stroke="#063b81" stroke-width="2" opacity=".5"/>
+          <line x1="356" y1="100" x2="360" y2="150" stroke="#063b81" stroke-width="2" opacity=".4"/>
+          <!-- poignées -->
+          <rect x="226" y="116" width="20" height="5" rx="2.5" fill="#cdd9e6"/>
+          <rect x="296" y="116" width="20" height="5" rx="2.5" fill="#cdd9e6"/>
+
+          <!-- feux -->
+          <path d="M452 116 q15 1 17 12 l-19 2 z" fill="#fdf2c4"/>
+          <path d="M66 112 q-3 1 -3 9 l12 1 z" fill="#e23b3b"/>
+
+          <!-- POT AlgO2 (arrière) -->
+          <g class="howit-pot">
+            <rect x="30" y="164" width="48" height="22" rx="11" fill="url(#potGrad)" stroke="#8e989d"/>
+            <rect x="49" y="167" width="14" height="16" rx="4" fill="#00B6A6"/>
+            <rect x="16" y="170" width="16" height="10" rx="3" fill="#9aa4a9"/>
+          </g>
+          <!-- bulles O2 -->
+          <g class="howit-bubbles" fill="#00B6A6">
+            <circle class="b1" cx="14" cy="174" r="4"/>
+            <circle class="b2" cx="14" cy="174" r="3"/>
+            <circle class="b3" cx="14" cy="174" r="5"/>
+          </g>
+
+          <!-- roue arrière -->
+          <g>
+            <circle cx="140" cy="178" r="40" fill="#1c2429"/>
+            <circle cx="140" cy="178" r="26" fill="url(#rimGrad)"/>
+            <g stroke="#8e989d" stroke-width="5" stroke-linecap="round">
+              <line x1="140" y1="154" x2="140" y2="202"/>
+              <line x1="119" y1="166" x2="161" y2="190"/>
+              <line x1="119" y1="190" x2="161" y2="166"/>
+            </g>
+            <circle cx="140" cy="178" r="7" fill="#5b676d"/>
+          </g>
+          <!-- roue avant -->
+          <g>
+            <circle cx="380" cy="178" r="40" fill="#1c2429"/>
+            <circle cx="380" cy="178" r="26" fill="url(#rimGrad)"/>
+            <g stroke="#8e989d" stroke-width="5" stroke-linecap="round">
+              <line x1="380" y1="154" x2="380" y2="202"/>
+              <line x1="359" y1="166" x2="401" y2="190"/>
+              <line x1="359" y1="190" x2="401" y2="166"/>
+            </g>
+            <circle cx="380" cy="178" r="7" fill="#5b676d"/>
+          </g>
+        </svg>
+      </div>
+
+      <aside class="howit-callout">
+        <h3>🔬 Le dispositif</h3>
+        <ul>
+          <li><span class="cut-dot alu"></span> <strong>Tube en aluminium</strong></li>
+          <li><span class="cut-dot fil"></span> <strong>Cartouche d'algues</strong> — capte le CO₂</li>
+          <li><span class="cut-dot o2"></span> <strong>Sortie O₂</strong> — air purifié</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <div class="post">Fin de la scène ↑</div>
+
+  <script>
+    // Pilote la variable --p (0 → 1) selon la progression du défilement dans #howit
+    (function () {
+      var howit = document.getElementById("howit");
+      if (!howit) return;
+      function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+      function onScroll() {
+        var rect = howit.getBoundingClientRect();
+        var total = howit.offsetHeight - window.innerHeight;
+        var p = total > 0 ? clamp(-rect.top / total, 0, 1) : 0;
+        howit.style.setProperty("--p", p.toFixed(4));
+      }
+      var ticking = false;
+      window.addEventListener("scroll", function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(function () { onScroll(); ticking = false; }); }
+      }, { passive: true });
+      window.addEventListener("resize", onScroll);
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
