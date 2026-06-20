@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 200" role="img" aria-label="EcoDrive">
+  <defs>
+    <linearGradient id="carGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0A4DA2"/>
+      <stop offset="1" stop-color="#00B6A6"/>
+    </linearGradient>
+  </defs>
+  <!-- Algae / leaves -->
+  <g fill="none" stroke="#00B6A6" stroke-width="6" stroke-linecap="round">
+    <path d="M40 150 C 30 110, 50 80, 52 60" />
+    <path d="M58 150 C 60 115, 78 95, 92 84" />
+    <path d="M48 150 C 44 120, 36 104, 26 96" />
+  </g>
+  <circle cx="60" cy="52" r="4" fill="#00B6A6"/>
+  <circle cx="74" cy="64" r="3" fill="#0A4DA2"/>
+  <circle cx="50" cy="44" r="2.5" fill="#0A4DA2"/>
+
+  <!-- Car silhouette -->
+  <path d="M110 132
+           C 150 96, 210 84, 250 96
+           C 280 70, 330 66, 360 96
+           C 392 98, 430 104, 452 128
+           L 452 134
+           C 430 134, 120 134, 110 132 Z"
+        fill="none" stroke="#263238" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Wave flow under car -->
+  <path d="M96 148 C 150 132, 210 164, 264 148 C 312 134, 372 164, 430 150"
+        fill="none" stroke="url(#carGrad)" stroke-width="9" stroke-linecap="round"/>
+  <path d="M120 166 C 168 154, 222 180, 276 166 C 324 154, 380 180, 432 168"
+        fill="none" stroke="#00B6A6" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Energy bolt -->
+  <path d="M300 104 L 286 132 L 300 132 L 292 156 L 318 124 L 304 124 Z"
+        fill="#00B6A6" stroke="#0A4DA2" stroke-width="1.5"/>
+
+  <!-- Wave swirl tail -->
+  <path d="M452 128 C 478 120, 486 146, 466 154 C 452 160, 446 146, 456 142"
+        fill="none" stroke="#00B6A6" stroke-width="7" stroke-linecap="round"/>
+</svg>
